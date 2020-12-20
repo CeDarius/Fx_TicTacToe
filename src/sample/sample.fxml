@@ -28,7 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="zero" mnemonicParsing="false" onAction="#zeroClick">
+            <Button fx:id="zero" mnemonicParsing="false" onAction="#buttonClick">
                <graphic>
                   <Label fx:id="lzero" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0" textAlignment="CENTER">
                      <font>
@@ -36,7 +36,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="one" mnemonicParsing="false" onAction="#oneClick" GridPane.columnIndex="1">
+            <Button fx:id="one" mnemonicParsing="false" onAction="#buttonClick" GridPane.columnIndex="1">
                <graphic>
                   <Label fx:id="lone" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>
@@ -44,7 +44,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="two" mnemonicParsing="false" onAction="#twoClick" GridPane.columnIndex="2">
+            <Button fx:id="two" mnemonicParsing="false" onAction="#buttonClick" GridPane.columnIndex="2">
                <graphic>
                   <Label fx:id="ltwo" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>
@@ -52,7 +52,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="three" mnemonicParsing="false" onAction="#threeClick" GridPane.rowIndex="1">
+            <Button fx:id="three" mnemonicParsing="false" onAction="#buttonClick" GridPane.rowIndex="1">
                <graphic>
                   <Label fx:id="lthree" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>
@@ -60,7 +60,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="four" mnemonicParsing="false" onAction="#fourClick" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="four" mnemonicParsing="false" onAction="#buttonClick" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -72,7 +72,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Button fx:id="five" mnemonicParsing="false" onAction="#fiveClick" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="five" mnemonicParsing="false" onAction="#buttonClick" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <graphic>
                   <Label fx:id="lfive" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>
@@ -80,7 +80,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="six" mnemonicParsing="false" onAction="#sixClick" GridPane.rowIndex="2">
+            <Button fx:id="six" mnemonicParsing="false" onAction="#buttonClick" GridPane.rowIndex="2">
                <graphic>
                   <Label fx:id="lsix" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>
@@ -88,7 +88,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="seven" mnemonicParsing="false" onAction="#sevenClick" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="seven" mnemonicParsing="false" onAction="#buttonClick" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <graphic>
                   <Label fx:id="lseven" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>
@@ -96,7 +96,7 @@
                      </font>
                   </Label>
                </graphic></Button>
-            <Button fx:id="eight" mnemonicParsing="false" onAction="#eightClick" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="eight" mnemonicParsing="false" onAction="#buttonClick" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <graphic>
                   <Label fx:id="leight" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="190.0">
                      <font>

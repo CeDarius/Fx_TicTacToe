@@ -9,168 +9,46 @@ public class Controller {
 
     @FXML
     Button zero, one, two, three, four, five, six, seven, eight, reset;
+    Button[] buttons;
     @FXML
     Label labelPlayer, lzero, lone, ltwo, lthree, lfour, lfive, lsix, lseven, leight, labelWinner;
-
+    Label[] labels;
     char[] table = new char[9];
-    int sequence;
-    boolean zeroIsFinished = false;
-    boolean oneIsFinished = false;
-    boolean twoIsFinished = false;
-    boolean threeIsFinished = false;
-    boolean fourIsFinished = false;
-    boolean fiveIsFinished = false;
-    boolean sixIsFinished = false;
-    boolean sevenIsFinished = false;
-    boolean eightIsFinished = false;
+    int sequence = 0;
+    boolean zeroIsFinished, oneIsFinished, twoIsFinished, threeIsFinished, fourIsFinished, fiveIsFinished,
+            sixIsFinished, sevenIsFinished, eightIsFinished;
+    boolean[] isFinished;
+    boolean isSetButtonsLabels = false;
     String playerOne = "Ready Player One";
     String playerTwo = "Ready Player Two";
 
+    @FXML
+    public void buttonClick(ActionEvent e) {
+        if(!isSetButtonsLabels) setButtonsLabels();
+        for(int i = 0; i < 9; i++){
+            if((buttons[i] == e.getSource()) && !isFinished[i]){
+                if(sequence % 2 == 0) {
+                    labels[i].setText("X");
+                    table[i] = 'x';
+                    labelPlayer.setText(playerOne);
+                }else {
+                    labels[i].setText("O");
+                    table[i] = 'o';
+                    labelPlayer.setText(playerTwo);
+                }
+                sequence++;
+                checkWinner();
+                isFinished[i] = true;
+            }
+        }
+    }
 
-
-    @FXML
-    public void zeroClick(ActionEvent e) {
-        if(!zeroIsFinished){
-            if(sequence % 2 == 0) {
-                lzero.setText("X");
-                table[0] = 'x';
-            }else {
-                lzero.setText("O");
-                table[0] = 'o';
-            }
-        }
-        sequence++;
-        zeroIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void oneClick(ActionEvent e) {
-        if(!oneIsFinished){
-            if(sequence % 2 == 0) {
-                lone.setText("X");
-                table[1] = 'x';
-            }else {
-                lone.setText("O");
-                table[1] = 'o';
-            }
-        }
-        sequence++;
-        oneIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void twoClick(ActionEvent e) {
-        if(!twoIsFinished){
-            if(sequence % 2 == 0) {
-                ltwo.setText("X");
-                table[2] = 'x';
-            }else {
-                ltwo.setText("O");
-                table[2] = 'o';
-            }
-        }
-        sequence++;
-        twoIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void threeClick(ActionEvent e) {
-        if(!threeIsFinished){
-            if(sequence % 2 == 0) {
-                lthree.setText("X");
-                table[3] = 'x';
-            }else {
-                lthree.setText("O");
-                table[3] = 'o';
-            }
-        }
-        sequence++;
-        threeIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void fourClick(ActionEvent e) {
-        if(!fourIsFinished){
-            if(sequence % 2 == 0) {
-                lfour.setText("X");
-                table[4] = 'x';
-            }else {
-                lfour.setText("O");
-                table[4] = 'o';
-            }
-        }
-        sequence++;
-        fourIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void fiveClick(ActionEvent e) {
-        if(!fiveIsFinished){
-            if(sequence % 2 == 0) {
-                lfive.setText("X");
-                table[5] = 'x';
-            }else {
-                lfive.setText("O");
-                table[5] = 'o';
-            }
-        }
-        sequence++;
-        fiveIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void sixClick(ActionEvent e) {
-        if(!sixIsFinished){
-            if(sequence % 2 == 0) {
-                lsix.setText("X");
-                table[6] = 'x';
-            }else {
-                lsix.setText("O");
-                table[6] = 'o';
-            }
-        }
-        sequence++;
-        sixIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void sevenClick(ActionEvent e) {
-        if(!sevenIsFinished){
-            if(sequence % 2 == 0) {
-                lseven.setText("X");
-                table[7] = 'x';
-            }else {
-                lseven.setText("O");
-                table[7] = 'o';
-            }
-        }
-        sequence++;
-        sevenIsFinished = true;
-        playerSequence();
-        checkWinner();
-    }
-    @FXML
-    public void eightClick(ActionEvent e) {
-        if(!eightIsFinished){
-            if(sequence % 2 == 0) {
-                leight.setText("X");
-                table[8] = 'x';
-            }else {
-                leight.setText("O");
-                table[8] = 'o';
-            }
-        }
-        sequence++;
-        eightIsFinished = true;
-        playerSequence();
-        checkWinner();
+    public void setButtonsLabels() {
+        buttons = new Button[] {zero, one, two, three, four, five, six, seven, eight};
+        labels = new Label[] {lzero, lone, ltwo, lthree, lfour, lfive, lsix, lseven, leight};
+        isFinished = new boolean[]{zeroIsFinished, oneIsFinished, twoIsFinished, threeIsFinished, fourIsFinished,
+                fiveIsFinished, sixIsFinished, sevenIsFinished, eightIsFinished};
+        isSetButtonsLabels = true;
     }
 
     public void checkWinner() {
@@ -197,53 +75,25 @@ public class Controller {
             labelWinner.setText("Winner Player Two");
             lockButtons();
         }
-        System.out.println("check over");
     }
 
     @FXML
     public void doReset(ActionEvent e) {
-        zeroIsFinished = false;
-        oneIsFinished = false;
-        twoIsFinished = false;
-        threeIsFinished = false;
-        fourIsFinished = false;
-        fiveIsFinished = false;
-        sixIsFinished = false;
-        sevenIsFinished = false;
-        eightIsFinished = false;
-        table = new char[]{'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'};
-        sequence = 0;
-        lzero.setText("");
-        lone.setText("");
-        ltwo.setText("");
-        lthree.setText("");
-        lfour.setText("");
-        lfive.setText("");
-        lsix.setText("");
-        lseven.setText("");
-        leight.setText("");
-        labelWinner.setText("");
-        labelPlayer.setText(playerOne);
-    }
-
-    public void playerSequence() {
-        if(sequence % 2 == 0) {
+        for(int i = 0; i < 9; i++){
+            isFinished[i] = false;
+            table[i] = 'a';
+            sequence = 0;
+            labels[i].setText("");
+            labelWinner.setText("");
             labelPlayer.setText(playerOne);
-        }else {
-            labelPlayer.setText(playerTwo);
+            isSetButtonsLabels = false;
         }
     }
 
     public void lockButtons() {
-        zeroIsFinished = true;
-        oneIsFinished = true;
-        twoIsFinished = true;
-        threeIsFinished = true;
-        fourIsFinished = true;
-        fiveIsFinished = true;
-        sixIsFinished = true;
-        sevenIsFinished = true;
-        eightIsFinished = true;
+        for(int i = 0; i < 9; i++){
+            isFinished[i] = true;
+        }
     }
 
 
